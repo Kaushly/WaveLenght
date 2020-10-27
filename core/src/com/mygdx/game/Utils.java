@@ -15,9 +15,6 @@ public class Utils {
         return (float) Math.toDegrees((float) Math.atan2(dy, dx));
     }
 
-//        public static float lerp(float value1, float value2, float point) {
-//            return value1 + (value2 - value1) * point;
-//        }
 
     public static float makeRotation(float angle, float angleTo, float rotationSpeed, float dt) {
         if (angle < angleTo) {

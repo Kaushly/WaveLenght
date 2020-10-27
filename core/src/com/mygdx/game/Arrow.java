@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -9,10 +10,10 @@ import com.badlogic.gdx.math.Vector2;
 public class Arrow {
     private Vector2 position = new Vector2(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
     private TextureRegion arrow;
-//    private Utils utils;
-    private float angle  = 90.0f;
-    private int wight = 328;
-    private int height = 50;
+    private float angle = 90.0f;
+    private float wight = 360;
+    private float height = 80;
+    private float result;
 
     public Arrow() {
         arrow = new TextureRegion(new Texture("arrow.png"));
@@ -35,13 +36,16 @@ public class Arrow {
         if (angle < -90.0f && angle > -180.0f) {
             angle = 180.0f;
         }
+        result = angle;
+
     }
+
 
     public void render(SpriteBatch batch) {
-        batch.draw(arrow, position.x - height / 2, position.y - arrow.getRegionHeight() /2, height / 2, height / 2, wight, height, 1, 1, angle);
+        batch.draw(arrow, position.x - height / 2, position.y - arrow.getRegionHeight() / 2, height / 2, height / 2, wight, height, 1, 1, angle);
     }
 
-    public int getHeight() {
-        return height;
+    public float getResult() {
+        return result;
     }
 }
